@@ -1,7 +1,7 @@
 var i = -1;
 
 function setup(){
-    let cnv;
+    let cnv; // Означает, что данный метод будет применяться только в пределах канвы
     localStorage.clear();
     cnv = createCanvas(1200, 900);
     background("#f7df1e");
@@ -39,6 +39,7 @@ function placeFirstDot(){
     point(mouseX, mouseY);
 }
 
+//Парсим джейсон, получаем линию
 function placeSecondDot(){
     point(mouseX, mouseY);
     strokeWeight(4);
@@ -47,6 +48,7 @@ function placeSecondDot(){
     mouseX, mouseY);
 }
 
+// Очистка LocalStorage + канвы
 document.querySelector('#clearButton').addEventListener('click', (e) => {
     localStorage.clear();
     i = -1;
