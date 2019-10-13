@@ -17,12 +17,12 @@ function setup(){
 }
 
 class Store {   
-    static getDots() {
+    static getDots(jsonName) {
         let dots;
-        if (localStorage.getItem('points1') === null) {
+        if (localStorage.getItem(jsonName) === null) {
             dots = [];
         } else {
-            dots = JSON.parse(localStorage.getItem('points1'));
+            dots = JSON.parse(localStorage.getItem(jsonName));
         }
 
         return dots;
@@ -31,10 +31,10 @@ class Store {
      * @function addDot - Добавляет первую/вторую точку в соответствующий JSON, в зависимости от переданных параметров.
      * @param obj - Объект координат точки.
      */
-    static addDot(obj){
-        const CURRENT_DOTS = Store.getDots();
+    static addDot(obj, jsonName){
+        const CURRENT_DOTS = Store.getDots(jsonName);
         CURRENT_DOTS.push(obj); 
-        window.localStorage.setItem('points1', JSON.stringify(CURRENT_DOTS));
+        window.localStorage.setItem(jsonName, JSON.stringify(CURRENT_DOTS));
     }
 }
 
@@ -44,7 +44,7 @@ function placeFirstPoint(){
         x1: mouseX,
         y1: mouseY
     };
-    Store.addDot(firstPoint);
+    Store.addDot(firstPoint, 'points1');
     strokeWeight(8);
     point(mouseX, mouseY);
 }
@@ -56,6 +56,7 @@ function placeSecondPoint(){
         x2: mouseX,
         y2: mouseY
     };
+    Store.addDot(secondPoint, 'points2');
     point(mouseX, mouseY);
     strokeWeight(4);
     line(JSON.parse(window.localStorage.getItem('points1'))[i].x1,
