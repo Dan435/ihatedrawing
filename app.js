@@ -47,6 +47,7 @@ function placeFirstPoint(){
     Store.addDot(firstPoint, 'points1');
     strokeWeight(8);
     point(mouseX, mouseY);
+    text(str(i), mouseX + 20, mouseY + 20);
 }
 
 //Парсим джейсон, получаем линию
@@ -58,6 +59,7 @@ function placeSecondPoint(){
     };
     Store.addDot(secondPoint, 'points2');
     point(mouseX, mouseY);
+    text(str(j), mouseX + 20, mouseY + 20);
     strokeWeight(4);
     line(JSON.parse(window.localStorage.getItem('points1'))[i].x1,
     JSON.parse(window.localStorage.getItem('points1'))[i].y1, 
