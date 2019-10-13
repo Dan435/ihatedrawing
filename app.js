@@ -68,6 +68,12 @@ function placeSecondPoint(){
     j++;
 }
 
+function drawLine(){
+    var firstJson = JSON.parse(localStorage.getItem('points1'));
+    var secondJson= JSON.parse(localStorage.getItem('points2'));
+    // TODO: Реализовать
+}
+
 // Очистка LocalStorage + канвы
 document.querySelector('#clearButton').addEventListener('click', (e) => {
     localStorage.clear();
