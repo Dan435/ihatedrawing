@@ -9,18 +9,7 @@ function setup(){
     cnv.mouseReleased(placeSecondDot);
 }
 
-// class MyLines {
-//     constructor(id, x1, y1, x2, y2){
-//         this.id = id;
-//         this.x1 = x1;
-//         this.y1 = y1; 
-//         this.x2 = x2;
-//         this.y2 = y2;
-//     }
-// }
-
-class Store {
-    
+class Store {   
     static getDots() {
         let dots;
         if (localStorage.getItem('points1') === null) {
@@ -38,15 +27,6 @@ class Store {
         window.localStorage.setItem('points1', JSON.stringify(CURRENT_DOTS));
         i++;  
     }
-    
-    // static addLine(myLines){
-    //     const lines = Store.getLines();
-    //     lines.push(myLines)
-    // }
-
-    // static clearLines() {
-    //     localStorage.clear();
-    // }
 }
 
 function placeFirstDot(){
