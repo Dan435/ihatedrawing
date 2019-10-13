@@ -10,7 +10,7 @@ var j = 0;
 function setup(){
     let cnv; // Означает, что данный метод будет применяться только в пределах канвы
     localStorage.clear();
-    cnv = createCanvas(1200, 900);
+    cnv = createCanvas(1000, 700);
     background("#f7df1e");
     cnv.mousePressed(placeFirstPoint);
     cnv.mouseReleased(placeSecondPoint);
